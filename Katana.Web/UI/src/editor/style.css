@@ -1,0 +1,163 @@
+/* Local editor styles: rooted in the editor or its namespaced teleported toast. */
+
+.katana-editor {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #e9e7e2;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark;
+  container-type: inline-size;
+  --accent: #e9aa70;
+  --muted: #a5a7aa;
+  --border: #34363a;
+}
+.katana-editor * { box-sizing: border-box; }
+.katana-editor { margin: 0; min-width: 0; width: 100%; min-height: 100%; overflow-x: auto; }
+.katana-editor button, .katana-editor input, .katana-editor select { font: inherit; }
+.katana-editor button, .katana-editor input[type="text"], .katana-editor select { min-height: 42px; border: 1px solid #484a4d; border-radius: 7px; }
+.katana-editor button { padding: 9px 15px; background: #303236; color: #f2eee9; cursor: pointer; font-size: .84rem; font-weight: 650; transition: background .15s, border-color .15s; }
+.katana-editor button:hover:not(:disabled) { background: #3d3f43; border-color: #87888a; }
+.katana-editor button:disabled, .katana-editor input:disabled, .katana-editor select:disabled { opacity: .45; cursor: not-allowed; }
+.katana-editor button.primary { background: var(--accent); border-color: var(--accent); color: #251d17; }
+.katana-editor button.primary:hover:not(:disabled) { background: #fac38f; border-color: #fac38f; }
+.katana-editor button.quiet { background: transparent; border-color: transparent; }
+.katana-editor button.quiet:hover:not(:disabled) { background: #2e3033; }
+.katana-editor button.danger { color: #efa99b; }
+.katana-editor :focus-visible { outline: 3px solid #f2bf8c; outline-offset: 3px; }
+.katana-editor input[type="text"], .katana-editor select { background: #17191c; color: #eeeae5; padding: 9px 12px; width: 100%; }
+.katana-editor input::placeholder { color: #8b8e92; }
+.katana-editor h1, .katana-editor h2, .katana-editor h3, .katana-editor h4, .katana-editor p { margin: 0; }
+.katana-editor h2 { font-size: clamp(1.8rem, 3vw, 2.45rem); font-weight: 650; letter-spacing: -.045em; margin: 8px 0 12px; }
+.katana-editor h3 { font-size: 1.17rem; font-weight: 600; letter-spacing: -.02em; }
+.katana-editor h4 { font-size: .9rem; font-weight: 600; margin: 0 0 24px; text-transform: capitalize; }
+.katana-editor p { line-height: 1.6; }
+.katana-editor small { line-height: 1.5; }
+.katana-editor .app-shell { width: 100%; margin: auto; padding: 0; }
+.katana-editor main { padding-top: 0; }
+.katana-editor .topbar { padding-bottom: 14px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; gap: 20px; border-bottom: 1px solid var(--border); }
+.katana-editor .brand { display: flex; gap: 14px; align-items: center; }
+.katana-editor .brand-mark { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid #e9aa705c; border-radius: 12px; background: #e9aa701a; color: var(--accent); font-family: "Katana Brush", "Noto Sans CJK JP", "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif; font-size: 30px; font-weight: 400; font-style: normal; line-height: 1; flex-shrink: 0; }
+/* Optical centring: the Japanese glyph sits below its font line-box centre. */
+.katana-editor .brand-glyph { display: block; transform: translateY(-2px); }
+.katana-editor .brand > div { display: flex; flex-direction: column; justify-content: center; gap: 4px; font-family: var(--font-body, ui-sans-serif, system-ui, sans-serif); }
+.katana-editor .brand h1 { font-size: 23px; letter-spacing: .025em; line-height: 1.2; margin: 0; font-weight: 700; }
+.katana-editor .brand p { font-size: 10px; letter-spacing: .13em; line-height: 1.2; text-transform: uppercase; color: var(--muted); margin: 0; }
+.katana-editor .connection-actions { display: flex; align-items: center; gap: 8px; }
+.katana-editor .connection { font-size: .8rem; color: var(--muted); margin-right: 12px; display: flex; gap: 8px; align-items: center; }
+.katana-editor .connection > span { width: 6px; height: 6px; background: #a5a7aa; border-radius: 50%; flex-shrink: 0; }
+.katana-editor .connection.connected > span { background: #a7c8a6; box-shadow: 0 0 0 4px #a7c8a611; }
+.katana-editor .eyebrow { color: var(--accent); font-size: .64rem; font-weight: 650; letter-spacing: .17em; margin-bottom: 9px; }
+.katana-editor .workspace { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; align-items: start; }
+@container (min-width: 1200px) {
+.katana-editor .workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr); }
+}
+.katana-editor .card { background: #1e2024; border: 1px solid var(--border); border-radius: 13px; padding: 26px; min-width: 0; }
+.katana-editor .offline-card { display: grid; place-items: center; min-height: 60vh; }
+.katana-editor .card-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 10px; }
+.katana-editor .tag { border: 1px solid #78614c; color: var(--accent); padding: 4px 7px; border-radius: 4px; font-size: .6rem; letter-spacing: .12em; }
+.katana-editor .muted { color: var(--muted); }
+.katana-editor .compact { font-size: .78rem; margin-bottom: 25px; }
+.katana-editor .compact strong { color: #c5c4c0; font-weight: 500; }
+.katana-editor .controls-grid { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px 8px; }
+.katana-editor .parameter-heading { display: flex; gap: 5px; align-items: baseline; flex-wrap: wrap; justify-content: space-between; margin-bottom: 12px; }
+.katana-editor .parameter label { font-size: .84rem; font-weight: 500; }
+.katana-editor .parameter output { font-size: .8rem; color: var(--accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.katana-editor .parameter output span { font-size: .66rem; }
+.katana-editor .parameter select { font-size: .8rem; padding-left: 6px; }
+.katana-editor .controls-grid.option-controls { column-gap: 24px; }
+.katana-editor .vertical-range { display: grid; grid-template-columns: 28px minmax(0, 1fr); }
+.katana-editor .parameter input[type="range"] { grid-column: 1; grid-row: 1; writing-mode: vertical-lr; direction: rtl; width: 28px; height: 160px; accent-color: var(--accent); margin: 0; cursor: pointer; }
+.katana-editor .parameter .range-labels { grid-column: 2; grid-row: 1; margin-left: 6px; display: flex; flex-direction: column; justify-content: space-between; color: #929599; font-size: .62rem; }
+.katana-editor .effect-tabs { display: flex; gap: 5px; flex-wrap: wrap; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 23px; }
+.katana-editor .effect-tabs button { font-size: .76rem; text-transform: capitalize; background: transparent; border-color: transparent; padding: 8px 12px; }
+.katana-editor .effect-tabs button.selected { background: #3a3027; border-color: #79624e; color: #eeeae5; }
+.katana-editor .effect-tabs button.enabled { color: var(--accent); }
+.katana-editor .count { background: #313337; color: #c4c4c2; min-width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; font-size: .75rem; }
+.katana-editor .save-form, .katana-editor .rename-form { display: grid; gap: 10px; }
+.katana-editor .save-form label, .katana-editor .rename-form label { font-size: .78rem; font-weight: 500; }
+.katana-editor .save-form { padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+.katana-editor .empty { color: var(--muted); font-size: .83rem; padding: 12px 0; }
+.katana-editor .preset-list { margin: 0; padding: 0; list-style: none; }
+.katana-editor .preset-list li { border-top: 1px solid var(--border); padding: 18px 0; }
+.katana-editor .preset-list li:last-child { padding-bottom: 0; }
+.katana-editor .preset-title { display: grid; gap: 5px; overflow-wrap: anywhere; }
+.katana-editor .preset-title strong { font-size: .87rem; font-weight: 600; }
+.katana-editor .preset-title small { color: var(--muted); font-size: .67rem; }
+.katana-editor .preset-actions { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 12px; }
+.katana-editor .preset-actions button { padding: 7px 10px; font-size: .72rem; }
+.katana-editor footer { display: flex; justify-content: space-between; gap: 20px; padding: 30px 0; color: #939599; font-size: .64rem; letter-spacing: .08em; overflow-wrap: anywhere; }
+@media (max-width: 1100px) {
+.katana-editor .workspace { gap: 18px; }
+.katana-editor .card { padding: 22px; }
+}
+@media (max-width: 800px) {
+.katana-editor .workspace { grid-template-columns: minmax(0, 1fr); }
+.katana-editor .library .save-form { grid-template-columns: 1fr auto; }
+.katana-editor .library .save-form label { grid-column: 1 / -1; }
+.katana-editor .library .save-form button { align-self: end; }
+}
+@media (max-width: 540px) {
+.katana-editor .topbar { flex-direction: column; align-items: stretch; gap: 10px; padding: 0 0 14px; }
+.katana-editor .connection-actions { justify-content: space-between; flex-wrap: wrap; }
+.katana-editor .connection { margin-right: auto; font-size: .75rem; }
+.katana-editor .connection-actions button { padding: 9px 10px; }
+.katana-editor .card { padding: 20px 17px; }
+.katana-editor .parameter-heading { flex-wrap: wrap; }
+.katana-editor .library .save-form { grid-template-columns: 1fr; }
+.katana-editor footer { flex-direction: column; gap: 10px; line-height: 1.6; }
+}
+
+.katana-editor .effect-toggle.active { background: #3a3027; border-color: var(--accent); color: var(--accent); }
+.katana-editor .effect-toggle:focus-visible { outline: 3px solid #f2bf8c; outline-offset: 3px; }
+
+.katana-editor .effect-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 24px; }
+.katana-editor .effect-panel-heading h4 { margin: 0; }
+.katana-editor .effect-panel-heading .parameter { flex-shrink: 0; }
+
+.katana-editor .controls-grid .parameter { width: 80px; max-width: 100%; min-width: 0; }
+.katana-editor .controls-grid .option-parameter { width: 168px; }
+.katana-editor .controls-grid .parameter-heading { justify-content: flex-start; text-align: left; }
+.katana-editor .controls-grid .parameter-heading label { font-size: .72rem; line-height: 1.35; overflow-wrap: anywhere; }
+.katana-editor .controls-grid .fader-parameter .parameter-heading { min-height: 3em; align-items: flex-end; justify-content: flex-start; text-align: left; }
+.katana-editor .fader-parameter output { display: block; text-align: left; margin-top: 10px; font-size: .75rem; white-space: normal; overflow-wrap: anywhere; }
+
+.katana-editor .control-rows { display: flex; flex-direction: column; gap: 24px; }
+
+
+
+.katana-editor .usb-muted { color: #ffad9e; }
+
+.katana-editor .amp-heading-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.katana-editor .usb-audio-dialog { margin: auto; width: min(420px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: 24px; border: 1px solid var(--border); border-radius: 13px; background: #1e2024; color: inherit; }
+.katana-editor .usb-audio-dialog::backdrop { background: #0009; }
+.katana-editor .usb-audio-dialog .muted { font-size: .8rem; }
+.katana-editor .usb-levels { margin: 24px 0; justify-content: center; }
+.katana-editor .usb-level output { white-space: normal; min-height: 32px; }
+
+.katana-editor .amp-slots { border-bottom: 1px solid var(--border); margin-bottom: 20px; padding-bottom: 20px; }
+.katana-editor .patch-section-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 16px; }
+.katana-editor .patch-section-heading h4 { font-size: .85rem; margin: 0; }
+.katana-editor .patch-section-heading .muted { font-size: .72rem; }
+.katana-editor .slot-controls { display: grid; grid-template-columns: minmax(80px, 1fr) auto auto; align-items: end; gap: 10px; margin-bottom: 14px; }
+.katana-editor .slot-controls:last-child { margin-bottom: 0; }
+.katana-editor .slot-controls button { font-size: .72rem; padding: 10px 12px; }
+.katana-editor .slot-field { display: grid; gap: 8px; min-width: 0; }
+.katana-editor .slot-field label { font-size: .75rem; color: #c4c4c2; }
+.katana-editor .slot-field select { width: 100%; padding: 8px 12px; background: #202226; color: #e9e7e2; }
+.katana-editor .slot-controls > .muted { font-size: .75rem; align-self: center; }
+.katana-editor .slot-dialog { margin: auto; width: min(440px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); overflow: auto; padding: 24px; border: 1px solid var(--border); border-radius: 13px; background: #1e2024; color: inherit; }
+.katana-editor .slot-dialog::backdrop { background: #0009; }
+.katana-editor .slot-dialog h3 { margin: 0 0 16px; }
+.katana-editor .slot-dialog .muted { font-size: .85rem; }
+.katana-editor .slot-dialog-actions { display: flex; gap: 12px; justify-content: flex-end; flex-wrap: wrap; margin-top: 24px; }
+
+/* Teleported outside the editor's container so fixed feedback stays viewport-relative. */
+.katana-toast { position: fixed; z-index: 1000; right: 24px; bottom: 24px; width: min(420px, calc(100vw - 32px)); max-height: calc(100dvh - 48px); overflow: auto; display: flex; align-items: flex-start; gap: 16px; box-sizing: border-box; padding: 16px; border: 1px solid #52664f; border-radius: 9px; background: #242d25; color: #c5ddc2; box-shadow: 0 8px 32px #0006; font: .88rem/1.5 ui-sans-serif, system-ui, sans-serif; }
+.katana-toast p { margin: 0; flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.katana-toast.katana-toast-error { border-color: #93594b; background: #392823; color: #f1c2b8; }
+.katana-toast button { flex-shrink: 0; min-width: 44px; min-height: 44px; padding: 0; border: 0; border-radius: 5px; background: transparent; color: inherit; font: inherit; font-size: 1.4rem; cursor: pointer; }
+.katana-toast button:hover { background: #ffffff14; }
+.katana-toast button:focus-visible { outline: 3px solid #f2bf8c; outline-offset: 2px; }
+.katana-editor .usb-audio-dialog { position: relative; }
+.katana-editor .katana-dialog-toast { position: absolute; right: 16px; bottom: 16px; width: calc(100% - 32px); max-height: calc(100% - 32px); }

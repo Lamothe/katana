@@ -1,0 +1,16 @@
+{
+  "name": "katana-desktop",
+  "productName": "Katana",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "main.mjs",
+  "scripts": {
+    "setup:electron": "install-electron",
+    "build": "dotnet publish ../Katana.Web/Katana.Web.csproj -c Release -o dist/backend",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "45.4.1"
+  }
+}

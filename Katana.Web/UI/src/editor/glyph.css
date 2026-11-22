@@ -1,0 +1,10 @@
+/* Keep ?no-inline: The application’s content security policy deliberately disallows data: fonts. */
+/* Yuji Boku: bundled subset containing only 刀 (U+5200). See fonts/OFL.txt. */
+@font-face {
+  font-family: "Katana Brush";
+  src: url("./fonts/yuji-boku-katana.ttf?no-inline") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  unicode-range: U+5200;
+}

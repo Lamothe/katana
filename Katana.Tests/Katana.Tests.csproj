@@ -1,0 +1,4 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType></PropertyGroup>
+  <ItemGroup><ProjectReference Include="../Katana.Core/Katana.Core.csproj" /><ProjectReference Include="../Katana.Web/Katana.Web.csproj" /></ItemGroup>
+</Project>
